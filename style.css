@@ -9,6 +9,15 @@
   font-family: Poppins;
 }
 
+.price-growth {
+  display: flex;
+}
+.crypto-name {
+  display: flex;
+  justify-content: center;
+  font-size: larger;
+  align-items: center;
+}
 body {
   background-color: #1e2026;
 }

@@ -16,39 +16,43 @@
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
     />
-    <title>Document</title>
+    <title>Crypto tracker</title>
   </head>
   <body>
     <div class="container-fluid">
-      <div class="row">
+      <div class="">
         <div class="crypto-title">
-          Bitcoin <i class="fab fa-bitcoin crypto-logo"></i>
-
-          <div class="price">
-            <div class="crypto-price">BTC</div>
-            <div id="BTC-price" class="price"></div>
+          <div class="crypto-name">
+            Bitcoin <i class="fab fa-bitcoin crypto-logo"></i>
           </div>
-          <div class="growth">
-            <div class="crypto-growth">Croissance de</div>
-            <div id="BTC-growth"></div>
+          <div class="price-growth">
+            <div class="price">
+              <div id="BTC-price" class="price"></div>
+            </div>
+            <div class="growth">
+              <div id="BTC-growth" class="growth"></div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="">
         <div class="crypto-title">
-          Ethereum <i class="fab fa-ethereum crypto-logo"></i>
-
-          <div class="price">
-            <div class="crypto-price">ETH</div>
-            <div id="ETH-price" class="price"></div>
+          <div class="crypto-name">
+            Ethereum <i class="fab fa-ethereum crypto-logo"></i>
           </div>
-          <div class="growth">
-            <div class="crypto-growth">Croissance de</div>
-            <div id="ETH-growth"></div>
+          <div class="price-growth">
+            <div class="price">
+              <div id="ETH-price" class="price"></div>
+            </div>
+            <div class="growth">
+              <div id="ETH-growth" class="growth"></div>
+            </div>
           </div>
         </div>
       </div>
+      <canvas id="myChart" width="1600" height="900"></canvas>
     </div>
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
   <script type="text/javascript" src="script.js"></script>
 </html>
