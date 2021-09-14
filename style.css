@@ -63,4 +63,5 @@ i {
 .crypto-title {
   border: 1px solid var(--color2);
   margin-bottom: 8px;
+  padding: 8px 8px;
 }
