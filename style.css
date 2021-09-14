@@ -9,6 +9,9 @@
   font-family: Poppins;
 }
 
+.fa-bitcoin {
+  color: orange;
+}
 .price-growth {
   display: flex;
 }

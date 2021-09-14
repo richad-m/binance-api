@@ -34,21 +34,23 @@ function getGrowth(crypto, fiat) {
     });
 }
 
-let priceDatas = []; // Initilazing empty price Array
-function getPriceData(crypto, fiat) {
-  // Fills array PriceDatas with values of a crypto in fiat
+let btcPriceData = []; // Initilazing empty price Array for BTC
+let ethPriceData = []; // Initializing empty price Array for ETH
+function getPriceData(crypto, fiat, array) {
+  // Fills array btcPriceData with values of a crypto in fiat
   fetch(
     `https://api.binance.com/api/v3/klines?symbol=${crypto}${fiat}&interval=1m`
   )
     .then((response) => response.json())
     .then((data) => {
       data.forEach((day) => {
-        priceDatas.push(day[3]);
+        array.push(day[3]);
       });
     });
 }
 
-getPriceData("BTC", "EUR");
+getPriceData("BTC", "EUR", btcPriceData);
+getPriceData("ETH", "EUR", ethPriceData);
 getAvgPrice("BTC", "EUR");
 getGrowth("BTC", "EUR");
 getAvgPrice("ETH", "EUR");
@@ -76,9 +78,9 @@ function dateArray() {
 }
 dateArray();
 
-function graphOverTime(datas) {
+function graphOverTime(datas, idDiv) {
   // Draw graph with datas along Y axe and times along X (as of today and backward)
-  var ctx = document.getElementById("myChart");
+  var ctx = document.getElementById(`${idDiv}`);
   var myChart = new Chart(ctx, {
     type: "line",
     data: {
@@ -86,7 +88,7 @@ function graphOverTime(datas) {
       datasets: [
         {
           data: datas,
-          label: "Price",
+          label: "Price over time in €",
           borderColor: "red",
           fill: false,
         },
@@ -113,4 +115,5 @@ function graphOverTime(datas) {
   });
 }
 
-graphOverTime(priceDatas);
+graphOverTime(btcPriceData, "BTCChart");
+graphOverTime(ethPriceData, "ETHChart");
