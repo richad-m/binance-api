@@ -1,11 +1,14 @@
-console.log("je suis dans le fichier js");
+function formatPrice(price) {
+  var nf = Intl.NumberFormat();
+  return nf.format(price);
+}
 
 function getAvgPrice(crypto, fiat) {
   let priceDiv = document.getElementById(`${crypto}-price`);
   fetch(`https://api.binance.com/api/v3/avgPrice?symbol=${crypto}${fiat}`)
     .then((response) => response.json())
     .then((data) => {
-      let cryptoPrice = `${data.price}€`;
+      let cryptoPrice = `${formatPrice(data.price)}€`;
       priceDiv.insertAdjacentHTML("beforeend", cryptoPrice);
     });
 }
