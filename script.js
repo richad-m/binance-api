@@ -131,3 +131,15 @@ function toCollapse(button, div) {
 }
 toCollapse(ETHButton, ETHChart);
 toCollapse(btcButton, btcChart);
+
+//Changing theme on clicking button
+
+const btnSwtichTheme = document.getElementById("theme-switcher");
+
+btnSwtichTheme.addEventListener("click", () => {
+  if (document.body.attributes[0].value == "light") {
+    document.body.setAttribute("data-theme", "dark");
+  } else {
+    document.body.setAttribute("data-theme", "light");
+  }
+});
