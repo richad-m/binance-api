@@ -1,4 +1,4 @@
-# binance-api
+# Crypto-currency charts
 
 **This page is a personal project**
 
