@@ -1,54 +1,11 @@
-function formatPrice(price) {
-  // Format Price in international 3,400.350€
-  var nf = Intl.NumberFormat();
-  return nf.format(price);
-}
-
-function getAvgPrice(crypto, fiat) {
-  // Display average Price of a crypto in fiat
-  let priceDiv = document.getElementById(`${crypto}-price`);
-  fetch(`https://api.binance.com/api/v3/avgPrice?symbol=${crypto}${fiat}`)
-    .then((response) => response.json())
-    .then((data) => {
-      let cryptoPrice = `${formatPrice(data.price)}€`;
-      priceDiv.insertAdjacentHTML("beforeend", cryptoPrice);
-    });
-}
-
-function getGrowth(crypto, fiat) {
-  // Display day growth of a crypto in %
-  let growthDiv = document.getElementById(`${crypto}-growth`);
-  fetch(`https://api.binance.com/api/v3/ticker/24hr?symbol=${crypto}${fiat}`)
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.priceChangePercent > 0) {
-        growthDiv.classList.toggle("positive");
-      } else {
-        growthDiv.classList.toggle("negative");
-      }
-      let cryptoGrowth =
-        data.priceChangePercent > 0
-          ? `+${data.priceChangePercent}%`
-          : `${data.priceChangePercent}%`;
-      growthDiv.insertAdjacentHTML("beforeend", cryptoGrowth);
-    });
-}
+import { formatPrice, getAvgPrice } from "./script/getAvgPrice.js";
+import getGrowth from "./script/getGrowth.js";
+import getPriceData from "./script/getPriceData.js";
+import graphOverTime from "./script/graphOverTime.js";
+import toCollapse from "./script/toCollapse.js";
 
 let btcPriceData = []; // Initilazing empty price Array for BTC
 let ethPriceData = []; // Initializing empty price Array for ETH
-function getPriceData(crypto, fiat, array) {
-  // Fills array btcPriceData with values of a crypto in fiat
-  fetch(
-    `https://api.binance.com/api/v3/klines?symbol=${crypto}${fiat}&interval=1d`
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      data.forEach((day) => {
-        array.push(day[3]);
-      });
-    });
-}
 
 getPriceData("BTC", "EUR", btcPriceData);
 getPriceData("ETH", "EUR", ethPriceData);
@@ -57,86 +14,24 @@ getGrowth("BTC", "EUR");
 getAvgPrice("ETH", "EUR");
 getGrowth("ETH", "EUR");
 
-function GetFormattedDate(date) {
-  // format date in DD/MM/YYYY
-  var month = date.getMonth() + 1;
-  var day = date.getDate();
-  var year = date.getFullYear();
-  return day + "/" + month + "/" + year;
-}
-
-let dates = []; // Initializing date Array for X axe
-function dateArray() {
-  let today = new Date();
-  for (let i = 0; i < 500; i++) {
-    dates.unshift(
-      GetFormattedDate(new Date(today.getTime() - 24 * 60 * 60 * 1000))
-    );
-    today = new Date(today.getTime() - 24 * 60 * 60 * 1000);
-  }
-}
-dateArray();
-
-function graphOverTime(datas, idDiv) {
-  // Draw graph with datas along Y axe and times along X (as of today and backward)
-  var ctx = document.getElementById(`${idDiv}`);
-  var myChart = new Chart(ctx, {
-    type: "line",
-    data: {
-      labels: dates,
-      datasets: [
-        {
-          data: datas,
-          label: "Price over time in €",
-          borderColor: "red",
-          fill: false,
-        },
-      ],
-      scales: {
-        yAxes: [
-          {
-            scaleLabel: {
-              display: true,
-              labelString: "Price",
-            },
-          },
-        ],
-        xAxes: [
-          {
-            scaleLabel: {
-              display: true,
-              labelString: "Days",
-            },
-          },
-        ],
-      },
-    },
-  });
-}
-
 graphOverTime(btcPriceData, "BTCChart");
 graphOverTime(ethPriceData, "ETHChart");
 
-//Collapsing chart when clicking on crypto name
+// Collapsing chart when clicking on crypto name
 
 const btcButton = document.getElementById("BTCButton");
 const btcChart = document.getElementById("BTCCollapse");
 const ETHButton = document.getElementById("ETHButton");
 const ETHChart = document.getElementById("ETHCollapse");
 
-function toCollapse(button, div) {
-  button.addEventListener("click", () => {
-    div.classList.toggle("d-none");
-  });
-}
 toCollapse(ETHButton, ETHChart);
 toCollapse(btcButton, btcChart);
 
 //Changing theme on clicking button
 
-const btnSwtichTheme = document.getElementById("theme-switcher");
-
-btnSwtichTheme.addEventListener("click", () => {
+const btnSwitchTheme = document.querySelector(".switch");
+const btnToggle = document.querySelector(".switch-label");
+btnSwitchTheme.addEventListener("change", () => {
   if (document.body.attributes[0].value == "light") {
     document.body.setAttribute("data-theme", "dark");
   } else {

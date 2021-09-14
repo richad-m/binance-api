@@ -21,7 +21,13 @@
   <body data-theme="light">
     <div class="container-fluid">
       <div class="title">How are crypto's doing today ?</div>
-      <button id="theme-switcher">Change theme</button>
+      <!-- Trying button -->
+      <label class="switch">
+        <input class="switch-input" type="checkbox" />
+        <span class="switch-label" data-on="Light" data-off="Dark"></span>
+        <span class="switch-handle"></span>
+      </label>
+      <!-- end of trying button -->
       <div class="">
         <div class="crypto-title">
           <div class="crypto-name" id="BTCButton">
@@ -61,5 +67,5 @@
     </div>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
-  <script type="text/javascript" src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </html>
