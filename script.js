@@ -39,10 +39,11 @@ let ethPriceData = []; // Initializing empty price Array for ETH
 function getPriceData(crypto, fiat, array) {
   // Fills array btcPriceData with values of a crypto in fiat
   fetch(
-    `https://api.binance.com/api/v3/klines?symbol=${crypto}${fiat}&interval=1m`
+    `https://api.binance.com/api/v3/klines?symbol=${crypto}${fiat}&interval=1d`
   )
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       data.forEach((day) => {
         array.push(day[3]);
       });
@@ -55,8 +56,6 @@ getAvgPrice("BTC", "EUR");
 getGrowth("BTC", "EUR");
 getAvgPrice("ETH", "EUR");
 getGrowth("ETH", "EUR");
-
-//constructing date array in JS
 
 function GetFormattedDate(date) {
   // format date in DD/MM/YYYY
@@ -130,6 +129,5 @@ function toCollapse(button, div) {
     div.classList.toggle("d-none");
   });
 }
-
-toCollapse(btcButton, btcChart);
 toCollapse(ETHButton, ETHChart);
+toCollapse(btcButton, btcChart);

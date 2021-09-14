@@ -9,3 +9,7 @@ It also uses Chart.js to display prices over time (as of a month).
 
 - Dark/light mode enabler
 - Loader while retrieving datas
+- Fix X axis
+- Split JS in multiples files (one per function)
+- Choose FIAT currency to display prices
+- Change scale in time (retrieve data from 1d up to 6 months)
