@@ -117,3 +117,19 @@ function graphOverTime(datas, idDiv) {
 
 graphOverTime(btcPriceData, "BTCChart");
 graphOverTime(ethPriceData, "ETHChart");
+
+//Collapsing chart when clicking on crypto name
+
+const btcButton = document.getElementById("BTCButton");
+const btcChart = document.getElementById("BTCCollapse");
+const ETHButton = document.getElementById("ETHButton");
+const ETHChart = document.getElementById("ETHCollapse");
+
+function toCollapse(button, div) {
+  button.addEventListener("click", () => {
+    div.classList.toggle("d-none");
+  });
+}
+
+toCollapse(btcButton, btcChart);
+toCollapse(ETHButton, ETHChart);

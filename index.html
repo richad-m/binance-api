@@ -20,9 +20,10 @@
   </head>
   <body>
     <div class="container-fluid">
+      <div class="title">How are crypto's doing today ?</div>
       <div class="">
         <div class="crypto-title">
-          <div class="crypto-name">
+          <div class="crypto-name" id="BTCButton">
             Bitcoin <i class="fab fa-bitcoin crypto-logo"></i>
           </div>
           <div class="price-growth">
@@ -33,17 +34,14 @@
               <div id="BTC-growth" class="growth"></div>
             </div>
           </div>
-          <canvas
-            id="BTCChart"
-            class="price-chart"
-            width="1600"
-            height="900"
-          ></canvas>
+          <div id="BTCCollapse">
+            <canvas id="BTCChart" class="price-chart"></canvas>
+          </div>
         </div>
       </div>
       <div class="">
         <div class="crypto-title">
-          <div class="crypto-name">
+          <div class="crypto-name" id="ETHButton">
             Ethereum <i class="fab fa-ethereum crypto-logo"></i>
           </div>
           <div class="price-growth">
@@ -54,12 +52,9 @@
               <div id="ETH-growth" class="growth"></div>
             </div>
           </div>
-          <canvas
-            id="ETHChart"
-            class="price-chart"
-            width="1600"
-            height="900"
-          ></canvas>
+          <div id="ETHCollapse">
+            <canvas id="ETHChart" class="price-chart"></canvas>
+          </div>
         </div>
       </div>
     </div>

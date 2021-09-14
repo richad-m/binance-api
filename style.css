@@ -9,6 +9,19 @@
   font-family: Poppins;
 }
 
+.title {
+  font-size: larger;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  margin: 5 auto;
+}
+
+canvas {
+  width: 1400px;
+  height: 900px;
+}
+
 .fa-bitcoin {
   color: orange;
 }
@@ -20,6 +33,7 @@
   justify-content: center;
   font-size: larger;
   align-items: center;
+  cursor: pointer;
 }
 body {
   background-color: #1e2026;
