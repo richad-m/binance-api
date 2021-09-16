@@ -5,7 +5,7 @@
   margin: 0px;
   box-sizing: border-box;
   font-size: medium;
-  background-color: var(--color1);
+  background-color: var(--color1) !important;
   color: var(--color2);
   font-family: Poppins;
 }
@@ -18,11 +18,13 @@ body[data-theme="light"] {
   --color1: #a5afcc;
   --color2: #1e2026;
   --positive: rgb(15, 100, 15);
+  --accent-color: #cca5b2;
 }
 body[data-theme="dark"] {
   --color2: #a5afcc;
   --color1: #1e2026;
   --positive: rgb(30, 167, 30);
+  --accent-color: #cca5b2;
 }
 
 .title {
