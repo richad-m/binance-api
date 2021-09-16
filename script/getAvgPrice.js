@@ -11,7 +11,7 @@ function getAvgPrice(crypto, fiat) {
     .then((response) => response.json())
     .then((data) => {
       let cryptoPrice = `${formatPrice(data.price)}€`;
-      priceDiv.insertAdjacentHTML("beforeend", cryptoPrice);
+      priceDiv.innerHTML = cryptoPrice;
     });
 }
 

@@ -4,16 +4,17 @@ function getGrowth(crypto, fiat) {
   fetch(`https://api.binance.com/api/v3/ticker/24hr?symbol=${crypto}${fiat}`)
     .then((response) => response.json())
     .then((data) => {
-      if (data.priceChangePercent > 0) {
+      if (
+        data.priceChangePercent >= 0 &&
+        !growthDiv.classList.contains("positive")
+      ) {
         growthDiv.classList.toggle("positive");
-      } else {
-        growthDiv.classList.toggle("negative");
       }
       let cryptoGrowth =
         data.priceChangePercent > 0
           ? `+${data.priceChangePercent}%`
           : `${data.priceChangePercent}%`;
-      growthDiv.insertAdjacentHTML("beforeend", cryptoGrowth);
+      growthDiv.innerHTML = cryptoGrowth;
     });
 }
 

@@ -7,6 +7,10 @@ import toCollapse from "./script/toCollapse.js";
 let btcPriceData = []; // Initilazing empty price Array for BTC
 let ethPriceData = []; // Initializing empty price Array for ETH
 
+setInterval(getAvgPrice, 10000, "BTC", "EUR");
+setInterval(getGrowth, 10000, "BTC", "EUR");
+setInterval(getAvgPrice, 10000, "ETH", "EUR");
+setInterval(getGrowth, 10000, "ETH", "EUR");
 getPriceData("BTC", "EUR", btcPriceData);
 getPriceData("ETH", "EUR", ethPriceData);
 getAvgPrice("BTC", "EUR");
