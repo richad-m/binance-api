@@ -9,7 +9,7 @@ function GetFormattedDate(date) {
 let dates = []; // Initializing date Array for X axe
 function dateArray() {
   let today = new Date();
-  for (let i = 0; i < 500; i++) {
+  for (let i = 0; i < 200; i++) {
     dates.unshift(
       GetFormattedDate(new Date(today.getTime() - 24 * 60 * 60 * 1000))
     );

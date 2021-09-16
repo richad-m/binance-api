@@ -13,3 +13,4 @@ It also uses Chart.js to display prices over time (as of a month).
 - Dark/light mode enabler (In progress)
 - Fix X axis (Done)
 - Split JS in multiples files (one per function) (Done)
+- Set Interval to fetch datas every X seconds (Done)

@@ -28,6 +28,37 @@
         <span class="switch-handle"></span>
       </label>
       <!-- end of trying button -->
+      <!-- Trying radio button for currency -->
+      <div
+        class="btn-group btn-group-toggle"
+        data-toggle="buttons"
+        id="fiat-click"
+      >
+        <label class="btn btn-secondary active">
+          <input
+            type="radio"
+            name="options"
+            id="option1"
+            autocomplete="off"
+            class="fiat-filter"
+            value="EUR"
+            checked
+          />
+          Euro €
+        </label>
+        <label class="btn btn-secondary">
+          <input
+            type="radio"
+            name="options"
+            id="option2"
+            autocomplete="off"
+            class="fiat-filter"
+            value="USDT"
+          />
+          Dollar $
+        </label>
+      </div>
+      <!-- ending radio button -->
       <div class="">
         <div class="crypto-title">
           <div class="crypto-name" id="BTCButton">

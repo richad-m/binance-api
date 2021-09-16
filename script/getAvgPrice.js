@@ -6,6 +6,7 @@ function formatPrice(price) {
 
 function getAvgPrice(crypto, fiat) {
   // Display average Price of a crypto in fiat
+  console.log(`la fiat qui est passee est ${fiat}`);
   let priceDiv = document.getElementById(`${crypto}-price`);
   fetch(`https://api.binance.com/api/v3/avgPrice?symbol=${crypto}${fiat}`)
     .then((response) => response.json())
