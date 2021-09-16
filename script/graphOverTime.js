@@ -29,7 +29,7 @@ function graphOverTime(datas, idDiv) {
         {
           data: datas,
           label: "Price over time in €",
-          borderColor: "red",
+          borderColor: "pink",
           fill: false,
         },
       ],

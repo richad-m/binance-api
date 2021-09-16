@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;800&display=swap");
 @import "./style/toggle-button.css";
 @import "./style/loader.css";
+@import "./style/graph.css";
 
 * {
   margin: 0px;
@@ -10,6 +11,8 @@
   color: var(--color2);
   font-family: Poppins;
 }
+
+@value color: #a5afcc;
 
 html {
   background-color: var(--color1);
@@ -33,11 +36,6 @@ body[data-theme="dark"] {
   font-weight: bolder;
   display: flex;
   justify-content: center;
-}
-
-canvas {
-  width: 1400px;
-  height: 900px;
 }
 
 .fa-bitcoin {
