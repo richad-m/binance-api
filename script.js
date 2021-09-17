@@ -4,15 +4,14 @@ import getPriceData from "./script/getPriceData.js";
 import graphOverTime from "./script/graphOverTime.js";
 import toCollapse from "./script/toCollapse.js";
 
-// Retreive chosen currency
+// Retreive chosen currency DISABLED FOR NOW
 let chosenFiat = "EUR";
+// let fiatClick = document.getElementById("fiat-click");
 
-let fiatClick = document.getElementById("fiat-click");
-
-fiatClick.addEventListener("click", (e) => {
-  chosenFiat = e.target.value;
-  console.log(chosenFiat);
-});
+// fiatClick.addEventListener("click", (e) => {
+//   chosenFiat = e.target.value;
+//   console.log(chosenFiat);
+// });
 
 // Fetching data every X seconds and updating results in HTML
 let btcPriceData = []; // Initilazing empty price Array for BTC

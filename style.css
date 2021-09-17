@@ -12,8 +12,6 @@
   font-family: Poppins;
 }
 
-@value color: #a5afcc;
-
 html {
   background-color: var(--color1);
 }
@@ -50,6 +48,10 @@ body[data-theme="dark"] {
   font-size: 1.7em;
   align-items: center;
   cursor: pointer;
+}
+
+.crypto-logo {
+  font-size: 1.2em;
 }
 .growth {
   margin-left: 8px;
